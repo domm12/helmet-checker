@@ -1,0 +1,36 @@
+{
+    "model" : {
+        "backend":              "Full Yolo",
+        "input_size":           416,
+        "anchors":              [1.27,1.40, 2.51,3.17, 2.94,9.41, 5.13,5.39, 6.75,11.20],
+        "max_box_per_image":    10,        
+        "labels":               ["helmet","person with helmet","person without helmet"]
+    },
+
+    "train": {
+        "train_image_folder":   "train_image_folder/",
+        "train_annot_folder":   "train_annot_folder/",     
+          
+        "train_times":          2,
+        "pretrained_weights":   "full_yolo_helmet_and_person.h5",
+        "batch_size":           2,
+        "learning_rate":        1e-4,
+        "nb_epochs":            50,
+        "warmup_epochs":        0,
+
+        "object_scale":         5.0 ,
+        "no_object_scale":      1.0,
+        "coord_scale":          1.0,
+        "class_scale":          1.0,
+
+        "saved_weights_name":   "Best_weight.h5",
+        "debug":                true
+    },
+
+    "valid": {
+        "valid_image_folder":   "",
+        "valid_annot_folder":   "",
+
+        "valid_times":          1
+    }
+}
